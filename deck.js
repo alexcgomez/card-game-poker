@@ -1,62 +1,80 @@
 import Card from "./card.js";
 
+// Para facilitar el codigo se ha hecho la siguiente asignación:
+
+export const value = {
+  ACE: 1,
+  TWO: 2,
+  THREE: 3,
+  FOUR: 4,
+  FIVE: 5,
+  SIX: 6,
+  SEVEN: 7,
+  EIGHT: 8,
+  NINE: 9,
+  TEN: 10,
+  J: 11,
+  Q: 12,
+  K: 13
+};
+
 export default class Deck {
   constructor() {
-    this.ace_Pikes = new Card("♠", "A");
-    this.two_Pikes = new Card("♠", "2");
-    this.three_Pikes = new Card("♠", "3");
-    this.four_Pikes = new Card("♠", "4");
-    this.five_Pikes = new Card("♠", "5");
-    this.six_Pikes = new Card("♠", "6");
-    this.seven_Pikes = new Card("♠", "7");
-    this.eight_Pikes = new Card("♠", "8");
-    this.nine_Pikes = new Card("♠", "9");
-    this.ten_Pikes = new Card("♠", "10");
-    this.J_Pikes = new Card("♠", "J");
-    this.Q_Pikes = new Card("♠", "Q");
-    this.K_Pikes = new Card("♠", "K");
+    this.ace_Pikes = new Card("♠", value.ACE);
+    this.two_Pikes = new Card("♠", value.TWO);
+    this.three_Pikes = new Card("♠", value.THREE);
+    this.four_Pikes = new Card("♠", value.FOUR);
+    this.five_Pikes = new Card("♠", value.FIVE);
+    this.six_Pikes = new Card("♠", value.SIX);
+    this.seven_Pikes = new Card("♠", value.SEVEN);
+    this.eight_Pikes = new Card("♠", value.EIGHT);
+    this.nine_Pikes = new Card("♠", value.NINE);
+    this.ten_Pikes = new Card("♠", value.TEN);
+    this.J_Pikes = new Card("♠", value.J);
+    this.Q_Pikes = new Card("♠", value.Q);
+    this.K_Pikes = new Card("♠", value.K);
 
-    this.ace_Clovers = new Card("♣", "A");
-    this.two_Clovers = new Card("♣", "2");
-    this.three_Clovers = new Card("♣", "3");
-    this.four_Clovers = new Card("♣", "4");
-    this.five_Clovers = new Card("♣", "5");
-    this.six_Clovers = new Card("♣", "6");
-    this.seven_Clovers = new Card("♣", "7");
-    this.eight_Clovers = new Card("♣", "8");
-    this.nine_Clovers = new Card("♣", "9");
-    this.ten_Clovers = new Card("♣", "10");
-    this.J_Clovers = new Card("♣", "J");
-    this.Q_Clovers = new Card("♣", "Q");
-    this.K_Clovers = new Card("♣", "K");
+    this.ace_Clovers = new Card("♣", value.ACE);
+    this.two_Clovers = new Card("♣", value.TWO);
+    this.three_Clovers = new Card("♣", value.THREE);
+    this.four_Clovers = new Card("♣", value.FOUR);
+    this.five_Clovers = new Card("♣", value.FIVE);
+    this.six_Clovers = new Card("♣", value.SIX);
+    this.seven_Clovers = new Card("♣", value.SEVEN);
+    this.eight_Clovers = new Card("♣", value.EIGHT);
+    this.nine_Clovers = new Card("♣", value.NINE);
+    this.ten_Clovers = new Card("♣", value.TEN);
+    this.J_Clovers = new Card("♣", value.J);
+    this.Q_Clovers = new Card("♣", value.Q);
+    this.K_Clovers = new Card("♣", value.K);
 
-    this.ace_Hearts = new Card("♥", "A");
-    this.two_Hearts = new Card("♥", "2");
-    this.three_Hearts = new Card("♥", "3");
-    this.four_Hearts = new Card("♥", "4");
-    this.five_Hearts = new Card("♥", "5");
-    this.six_Hearts = new Card("♥", "6");
-    this.seven_Hearts = new Card("♥", "7");
-    this.eight_Hearts = new Card("♥", "8");
-    this.nine_Hearts = new Card("♥", "9");
-    this.ten_Hearts = new Card("♥", "10");
-    this.J_Hearts = new Card("♥", "J");
-    this.Q_Hearts = new Card("♥", "Q");
-    this.K_Hearts = new Card("♥", "K");
+    this.ace_Hearts = new Card("♥", value.ACE);
+    this.two_Hearts = new Card("♥", value.TWO);
+    this.three_Hearts = new Card("♥", value.THREE);
+    this.four_Hearts = new Card("♥", value.FOUR);
+    this.five_Hearts = new Card("♥", value.FIVE);
+    this.six_Hearts = new Card("♥", value.SIX);
+    this.seven_Hearts = new Card("♥", value.SEVEN);
+    this.eight_Hearts = new Card("♥", value.EIGHT);
+    this.nine_Hearts = new Card("♥", value.NINE);
+    this.ten_Hearts = new Card("♥", value.TEN);
+    this.J_Hearts = new Card("♥", value.J);
+    this.Q_Hearts = new Card("♥", value.Q);
+    this.K_Hearts = new Card("♥", value.K);
 
-    this.ace_Tiles = new Card("♦", "A");
-    this.two_Tiles = new Card("♦", "2");
-    this.three_Tiles = new Card("♦", "3");
-    this.four_Tiles = new Card("♦", "4");
-    this.five_Tiles = new Card("♦", "5");
-    this.six_Tiles = new Card("♦", "6");
-    this.seven_Tiles = new Card("♦", "7");
-    this.eight_Tiles = new Card("♦", "8");
-    this.nine_Tiles = new Card("♦", "9");
-    this.ten_Tiles = new Card("♦", "10");
-    this.J_Tiles = new Card("♦", "J");
-    this.Q_Tiles = new Card("♦", "Q");
-    this.K_Tiles = new Card("♦", "K");
+    this.ace_Tiles = new Card("♦", value.ACE);
+    this.two_Tiles = new Card("♦", value.TWO);
+    this.three_Tiles = new Card("♦", value.THREE);
+    this.four_Tiles = new Card("♦", value.FOUR);
+    this.five_Tiles = new Card("♦", value.FIVE);
+    this.six_Tiles = new Card("♦", value.SIX);
+    this.seven_Tiles = new Card("♦", value.SEVEN);
+    this.eight_Tiles = new Card("♦", value.EIGHT);
+    this.nine_Tiles = new Card("♦", value.NINE);
+    this.ten_Tiles = new Card("♦", value.TEN);
+    this.J_Tiles = new Card("♦", value.J);
+    this.Q_Tiles = new Card("♦", value.Q);
+    this.K_Tiles = new Card("♦", value.K);
   }
 
   deal() {
