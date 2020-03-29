@@ -95,10 +95,13 @@ function straightFlush(cards) {
     // a must be equal to b
     return 0;
   });
-  //
-  if (cards.every((c, i) => c.value[i] == c.value[i + 1] - 1)) {
-    console.log("forman escalera");
-    return true;
-  }
-  // solo hay un espacio entre
+  // Compruebo si forman escalera
+  let values = [];
+  cards.forEach(c => {
+    values.push(c.value);
+  });
+  console.log(values);
+  let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
+  if (straight) return true;
+  return false;
 }
