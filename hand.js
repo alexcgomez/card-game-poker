@@ -1,4 +1,5 @@
 import { value } from "./deck.js";
+import _ from "lodash";
 
 export default class Hand {
   constructor(...cards) {
@@ -14,21 +15,21 @@ export default class Hand {
     switch (true) {
       case royalStraightFlush(this.cards):
         console.log("Tienes una escalera real de color!");
-
         break;
 
       case straightFlush(this.cards):
         console.log("Tienes una escalera de color!");
+        break;
 
+      case fourOfaKind(this.cards):
+        console.log("Tienes un póker!");
         break;
 
       default:
         console.log("no tienes nada...");
-
         break;
     }
 
-    // straightFlush(this.cards);
     // fourOfaKind(this.cards);
     // fullHouse(this.cards);
     // flush(this.cards);
@@ -42,14 +43,13 @@ export default class Hand {
 function royalStraightFlush(cards) {
   // Para escalera Real de color, 2 condiciones: Tener todas el mismo PALO, formar una ESCALERA al As.
 
-  // Comprobamos PALO
-
+  // Compruebo PALO
   if (
     cards.every(
       c => c.shape == "♦" || c.shape == "♠" || c.shape == "♣" || c.shape == "♥"
     )
   ) {
-    // Comprobamos ESCALERA
+    // Compruebo ESCALERA
     // Primero ordeno la mano
     cards.sort((a, b) => {
       if (a.value > b.value) {
@@ -61,8 +61,10 @@ function royalStraightFlush(cards) {
       // a must be equal to b
       return 0;
     });
+
     // ¿Forman escalera?
     // En este caso, como solo hay un posible resultado (escalera real) no compruebo si forma escalera compruebo directamente si es una escalera real.
+
     // ¿Escalera al As?
     // Como el As juega un papel especial, ira al final de la escalera únicamente si se cumple: As, 10, J, Q, K  -----> 10, J, Q, K, As
     if (
@@ -100,8 +102,16 @@ function straightFlush(cards) {
   cards.forEach(c => {
     values.push(c.value);
   });
-  console.log(values);
+  //console.log(values);
   let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
-  if (straight) return true;
+  if (straight == 1) return true;
   return false;
+}
+
+function fourOfaKind(cards) {
+  let values = [];
+  cards.forEach(c => {
+    values.push(c.value);
+  });
+  if (values.length - _.uniq(values).length === 3) return true;
 }
