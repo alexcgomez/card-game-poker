@@ -3,7 +3,23 @@ import _ from "lodash";
 
 export default class Hand {
   constructor(...cards) {
+    // Primero ordeno la mano
+    cards.sort((a, b) => {
+      if (a.value > b.value) {
+        return 1;
+      }
+      if (a.value < b.value) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    let values = [];
+    cards.forEach(c => {
+      values.push(c.value);
+    });
     this.cards = cards;
+    this.cards_values = values;
   }
 
   calcHand() {
@@ -17,15 +33,15 @@ export default class Hand {
         console.log("Tienes una escalera real de color!");
         break;
 
-      case straightFlush(this.cards):
+      case straightFlush(this.cards, this.cards_values):
         console.log("Tienes una escalera de color!");
         break;
 
-      case fourOfaKind(this.cards):
+      case fourOfaKind(this.cards_values):
         console.log("Tienes un póker!");
         break;
 
-      case fullHouse(this.cards):
+      case fullHouse(this.cards_values):
         console.log("Tienes un full!");
         break;
 
@@ -33,25 +49,31 @@ export default class Hand {
         console.log("Tienes un Color!");
         break;
 
-      case straight(this.cards):
+      case straight(this.cards_values):
         console.log("Tienes un Escalera!");
         break;
 
+      case threeOfaKind(this.cards_values):
+        console.log("Tienes un Trio!");
+        break;
+
+      case twoPair(this.cards_values):
+        console.log("Tienes doble Pareja!");
+        break;
+
+      case onePair(this.cards_values):
+        console.log("Tienes una Pareja!");
+        break;
+
       default:
-        console.log("no tienes nada...");
+        console.log("Tienes carta alta!");
         break;
     }
-    // straight(this.cards);
-    // threeOfaKind(this.cards);
-    // twoPair(this.cards);
-    // onePair(this.cards);
-    // highCard(this.cards);
   }
 }
 
 function royalStraightFlush(cards) {
   // Para escalera Real de color, 2 condiciones: Tener todas el mismo PALO, formar una ESCALERA al As.
-
   // Compruebo PALO
   if (
     cards.every(c => c.shape === "♠") ||
@@ -60,18 +82,6 @@ function royalStraightFlush(cards) {
     cards.every(c => c.shape === "♦")
   ) {
     // Compruebo ESCALERA
-    // Primero ordeno la mano
-    cards.sort((a, b) => {
-      if (a.value > b.value) {
-        return 1;
-      }
-      if (a.value < b.value) {
-        return -1;
-      }
-      // a must be equal to b
-      return 0;
-    });
-
     // ¿Forman escalera?
     // En este caso, como solo hay un posible resultado (escalera real) no compruebo si forma escalera compruebo directamente si es una escalera real.
 
@@ -95,7 +105,7 @@ function royalStraightFlush(cards) {
   // Cualquier otro caso NO es una escalera real de color: false
 }
 
-function straightFlush(cards) {
+function straightFlush(cards, values) {
   if (
     cards.every(c => c.shape === "♠") ||
     cards.every(c => c.shape === "♣") ||
@@ -103,11 +113,6 @@ function straightFlush(cards) {
     cards.every(c => c.shape === "♦")
   ) {
     // Compruebo si forman escalera
-    let values = [];
-    cards.forEach(c => {
-      values.push(c.value);
-    });
-    //console.log(values);
     let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
     if (straight == 1) return true;
   }
@@ -115,11 +120,7 @@ function straightFlush(cards) {
   return false;
 }
 
-function fourOfaKind(cards) {
-  let values = [];
-  cards.forEach(c => {
-    values.push(c.value);
-  });
+function fourOfaKind(values) {
   let counter = 0;
   for (let i = 0; i < values.length; i++) {
     for (let j = 0; j < values.length; j++) {
@@ -134,24 +135,21 @@ function fourOfaKind(cards) {
   //  if (values.length - _.uniq(values).length === 3) return true;
 }
 
-function fullHouse(cards) {
-  let values = [];
-  cards.forEach(c => {
-    values.push(c.value);
-  });
+function fullHouse(values) {
   let valueEquals = _.uniq(values);
   let count1 = 0;
   let count2 = 0;
-  values.forEach(v => {
-    if (v === valueEquals[0]) count1++;
-  });
-  values.forEach(v => {
-    if (v === valueEquals[1]) count2++;
-  });
+  if (valueEquals.length == 2) {
+    values.forEach(v => {
+      if (v === valueEquals[0]) count1++;
+    });
+    values.forEach(v => {
+      if (v === valueEquals[1]) count2++;
+    });
 
-  if ((count1 === 3 && count2 === 2) || (count2 === 3 && count1 === 2))
-    return true;
-  else return false;
+    if ((count1 === 3 && count2 === 2) || (count2 === 3 && count1 === 2))
+      return true;
+  } else return false;
 }
 
 function flush(cards) {
@@ -160,19 +158,64 @@ function flush(cards) {
     cards.every(c => c.shape === "♣") ||
     cards.every(c => c.shape === "♥") ||
     cards.every(c => c.shape === "♦")
-  ) 
+  )
     return true;
   else return false;
 }
 
-function straight(cards) {
-  // Compruebo si forman escalera
-  let values = [];
-  cards.forEach(c => {
-    values.push(c.value);
-  });
-  //console.log(values);
+function straight(values) {
   let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
   if (straight == 1) return true;
   else return false;
+}
+
+function threeOfaKind(values) {
+  // Método _.uniq() devuelve array sin repetidos, utilizo contadores para determinar cuantos repetidos hayde cada valor
+  let valueEquals = _.uniq(values);
+  if (valueEquals.length === 3) {
+    let count1 = 0;
+    let count2 = 0;
+    let count3 = 0;
+    values.forEach(v => {
+      if (v === valueEquals[0]) count1++;
+    });
+    values.forEach(v => {
+      if (v === valueEquals[1]) count2++;
+    });
+    values.forEach(v => {
+      if (v === valueEquals[2]) count3++;
+    });
+    if (count1 === 3 || count2 === 3 || count3 === 3) return true;
+  }
+  return false;
+}
+
+function twoPair(values) {
+  // Método _.uniq() devuelve array sin repetidos, utilizo contadores para determinar cuantos repetidos hayde cada valor
+  let valueEquals = _.uniq(values);
+  if (valueEquals.length === 3) {
+    let count = [0, 0, 0];
+    values.forEach(v => {
+      if (v === valueEquals[0]) ++count[0];
+    });
+    values.forEach(v => {
+      if (v === valueEquals[1]) ++count[1];
+    });
+    values.forEach(v => {
+      if (v === valueEquals[2]) ++count[2];
+    });
+    if (
+      (count[0] === 2 && count[1] === 2) ||
+      (count[1] === 2 && count[2] === 2) ||
+      (count[0] === 2 && count[2] === 2)
+    )
+      return true;
+  }
+  return false;
+}
+
+function onePair(values) {
+  let valueEquals = _.uniq(values);
+  if (valueEquals.length === 4) return true;
+  return false;
 }
