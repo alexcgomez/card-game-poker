@@ -6,11 +6,11 @@ import { value } from "./deck.js";
 
 let d = new Deck();
 const h = new Hand(
-  new Card("♥", value.TWO),
-  new Card("♦", value.TWO),
-  new Card("♣", value.TWO),
-  new Card("♠", value.TWO),
-  new Card("♥", value.K)
+  new Card("♣", value.NINE),
+  new Card("♣", value.TEN),
+  new Card("♣", value.J),
+  new Card("♥", value.Q),
+  new Card("♣", value.K)
 );
 
 /*ESCALERA REAL DE COLOR

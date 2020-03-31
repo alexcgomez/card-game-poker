@@ -25,14 +25,22 @@ export default class Hand {
         console.log("Tienes un póker!");
         break;
 
+      case fullHouse(this.cards):
+        console.log("Tienes un full!");
+        break;
+
+      case flush(this.cards):
+        console.log("Tienes un Color!");
+        break;
+
+      case straight(this.cards):
+        console.log("Tienes un Escalera!");
+        break;
+
       default:
         console.log("no tienes nada...");
         break;
     }
-
-    // fourOfaKind(this.cards);
-    // fullHouse(this.cards);
-    // flush(this.cards);
     // straight(this.cards);
     // threeOfaKind(this.cards);
     // twoPair(this.cards);
@@ -40,14 +48,16 @@ export default class Hand {
     // highCard(this.cards);
   }
 }
+
 function royalStraightFlush(cards) {
   // Para escalera Real de color, 2 condiciones: Tener todas el mismo PALO, formar una ESCALERA al As.
 
   // Compruebo PALO
   if (
-    cards.every(
-      c => c.shape == "♦" || c.shape == "♠" || c.shape == "♣" || c.shape == "♥"
-    )
+    cards.every(c => c.shape === "♠") ||
+    cards.every(c => c.shape === "♣") ||
+    cards.every(c => c.shape === "♥") ||
+    cards.every(c => c.shape === "♦")
   ) {
     // Compruebo ESCALERA
     // Primero ordeno la mano
@@ -86,25 +96,22 @@ function royalStraightFlush(cards) {
 }
 
 function straightFlush(cards) {
-  // Primero ordeno la mano
-  cards.sort((a, b) => {
-    if (a.value > b.value) {
-      return 1;
-    }
-    if (a.value < b.value) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-  });
-  // Compruebo si forman escalera
-  let values = [];
-  cards.forEach(c => {
-    values.push(c.value);
-  });
-  //console.log(values);
-  let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
-  if (straight == 1) return true;
+  if (
+    cards.every(c => c.shape === "♠") ||
+    cards.every(c => c.shape === "♣") ||
+    cards.every(c => c.shape === "♥") ||
+    cards.every(c => c.shape === "♦")
+  ) {
+    // Compruebo si forman escalera
+    let values = [];
+    cards.forEach(c => {
+      values.push(c.value);
+    });
+    //console.log(values);
+    let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
+    if (straight == 1) return true;
+  }
+
   return false;
 }
 
@@ -125,4 +132,47 @@ function fourOfaKind(cards) {
   // console.log(counter);
   // console.log(values);
   //  if (values.length - _.uniq(values).length === 3) return true;
+}
+
+function fullHouse(cards) {
+  let values = [];
+  cards.forEach(c => {
+    values.push(c.value);
+  });
+  let valueEquals = _.uniq(values);
+  let count1 = 0;
+  let count2 = 0;
+  values.forEach(v => {
+    if (v === valueEquals[0]) count1++;
+  });
+  values.forEach(v => {
+    if (v === valueEquals[1]) count2++;
+  });
+
+  if ((count1 === 3 && count2 === 2) || (count2 === 3 && count1 === 2))
+    return true;
+  else return false;
+}
+
+function flush(cards) {
+  if (
+    cards.every(c => c.shape === "♠") ||
+    cards.every(c => c.shape === "♣") ||
+    cards.every(c => c.shape === "♥") ||
+    cards.every(c => c.shape === "♦")
+  ) 
+    return true;
+  else return false;
+}
+
+function straight(cards) {
+  // Compruebo si forman escalera
+  let values = [];
+  cards.forEach(c => {
+    values.push(c.value);
+  });
+  //console.log(values);
+  let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
+  if (straight == 1) return true;
+  else return false;
 }
