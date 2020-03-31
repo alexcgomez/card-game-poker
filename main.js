@@ -6,10 +6,10 @@ import { value } from "./deck.js";
 
 let d = new Deck();
 const h = new Hand(
-  new Card("♥", value.ACE),
-  new Card("♦", value.ACE),
-  new Card("♣", value.ACE),
-  new Card("♠", value.K),
+  new Card("♥", value.TWO),
+  new Card("♦", value.TWO),
+  new Card("♣", value.TWO),
+  new Card("♠", value.TWO),
   new Card("♥", value.K)
 );
 

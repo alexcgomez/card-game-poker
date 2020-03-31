@@ -113,5 +113,16 @@ function fourOfaKind(cards) {
   cards.forEach(c => {
     values.push(c.value);
   });
-  if (values.length - _.uniq(values).length === 3) return true;
+  let counter = 0;
+  for (let i = 0; i < values.length; i++) {
+    for (let j = 0; j < values.length; j++) {
+      if (values[i] === values[j]) counter++;
+      if (counter === 4) return true;
+    }
+    counter = 0;
+  }
+  return false;
+  // console.log(counter);
+  // console.log(values);
+  //  if (values.length - _.uniq(values).length === 3) return true;
 }
