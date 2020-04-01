@@ -38,7 +38,7 @@ export default class Hand {
         break;
 
       case fourOfaKind(this.cards_values):
-        console.log("Tienes un póker!");
+        console.log("Poker!");
         break;
 
       case fullHouse(this.cards_values):

@@ -80,7 +80,6 @@ export default class Deck {
 
     // Saco una carta aleatoria
     const card = deck[getRandomInt(0, 51)];
-    console.log(card.toString());
     let a = card.toString();
     // Elimino esa carta del mazo
     delete this[a];

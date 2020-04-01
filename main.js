@@ -4,14 +4,11 @@ import Player from "./player.js";
 import Card from "./card.js";
 
 let d = new Deck();
-//const h = new Hand(d.deal(), d.deal(), d.deal(), d.deal(), d.deal());
-console.log(d);
-d.deal();
-console.log(d);
+const h = new Hand(d.deal(), d.deal(), d.deal(), d.deal(), d.deal());
 
-// const p1 = new Player("Alex", h, 1);
-// console.log(p1.hand);
-// p1.hand.calcHand();
+const p1 = new Player("Alex", h, 1);
+console.log(p1.hand);
+p1.hand.calcHand();
 
 /*
 
