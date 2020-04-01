@@ -113,8 +113,8 @@ function straightFlush(cards, values) {
     cards.every(c => c.shape === "♦")
   ) {
     // Compruebo si forman escalera
-    let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
-    if (straight == 1) return true;
+
+    return straight(values);
   }
 
   return false;
@@ -164,8 +164,32 @@ function flush(cards) {
 }
 
 function straight(values) {
-  let straight = values.reduce((acum, item) => item - acum - 1, values[0]);
-  if (straight == 1) return true;
+  let cont = 0;
+  // Si values contiene un As y un 10 (p.e.), As pasa a valer 14 para poder formar escalera alta.
+  if (values.includes(1) && values.includes(10)) {
+    // Guardo para no modificar la variable
+    let values2 = values;
+    // Cambio valor de As a 14 para hacer la comprobación
+    values2[0] = 14;
+    // Re-ordeno valores
+    values2.sort((a, b) => {
+      if (a > b) {
+        return 1;
+      }
+      if (a < b) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    for (let i = 0; i < values.length - 1; i++) {
+      if (values[i] + 1 == values[i + 1]) cont++;
+    }
+  } else
+    for (let i = 0; i < values.length - 1; i++) {
+      if (values[i] + 1 == values[i + 1]) cont++;
+    }
+  if (cont == 4) return true;
   else return false;
 }
 

@@ -33,7 +33,6 @@ export default class Deck {
     this.J_Pikes = new Card("♠", value.J);
     this.Q_Pikes = new Card("♠", value.Q);
     this.K_Pikes = new Card("♠", value.K);
-
     this.ace_Clovers = new Card("♣", value.ACE);
     this.two_Clovers = new Card("♣", value.TWO);
     this.three_Clovers = new Card("♣", value.THREE);
@@ -47,7 +46,6 @@ export default class Deck {
     this.J_Clovers = new Card("♣", value.J);
     this.Q_Clovers = new Card("♣", value.Q);
     this.K_Clovers = new Card("♣", value.K);
-
     this.ace_Hearts = new Card("♥", value.ACE);
     this.two_Hearts = new Card("♥", value.TWO);
     this.three_Hearts = new Card("♥", value.THREE);
@@ -61,7 +59,6 @@ export default class Deck {
     this.J_Hearts = new Card("♥", value.J);
     this.Q_Hearts = new Card("♥", value.Q);
     this.K_Hearts = new Card("♥", value.K);
-
     this.ace_Tiles = new Card("♦", value.ACE);
     this.two_Tiles = new Card("♦", value.TWO);
     this.three_Tiles = new Card("♦", value.THREE);
@@ -80,10 +77,13 @@ export default class Deck {
   deal() {
     // Guardo los valores del objeto en un array de cartas (un mazo)
     const deck = Object.values(this);
+
     // Saco una carta aleatoria
     const card = deck[getRandomInt(0, 51)];
+    console.log(card.toString());
+    let a = card.toString();
     // Elimino esa carta del mazo
-    deck.splice(deck.indexOf(card), 1);
+    delete this[a];
     // La reparto
     return card;
   }
