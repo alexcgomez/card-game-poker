@@ -1,8 +1,7 @@
-import Card from "./card.js";
+const Card = require("./card");
 
 // Para facilitar el codigo se ha hecho la siguiente asignación:
-
-export const value = {
+const value = {
   ACE: 1,
   TWO: 2,
   THREE: 3,
@@ -15,10 +14,10 @@ export const value = {
   TEN: 10,
   J: 11,
   Q: 12,
-  K: 13
+  K: 13,
 };
 
-export default class Deck {
+class Deck {
   constructor() {
     this.ace_Pikes = new Card("♠", value.ACE);
     this.two_Pikes = new Card("♠", value.TWO);
@@ -92,3 +91,5 @@ export default class Deck {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+module.exports = { Deck, value };

@@ -2,14 +2,23 @@
   "name": "card-game-poker",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raiben23/card-game-poker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "lodash": "^4.17.15"
+  "bugs": {
+    "url": "https://github.com/raiben23/card-game-poker/issues"
+  },
+  "homepage": "https://github.com/raiben23/card-game-poker#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

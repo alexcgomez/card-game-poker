@@ -1,7 +1,8 @@
-import { value } from "./deck.js";
-import _ from "lodash";
+//import { value } from "./deck.js";
+const value = require("./deck");
+const _ = require("lodash");
 
-export default class Hand {
+class Hand {
   constructor(...cards) {
     // Primero ordeno la mano
     cards.sort((a, b) => {
@@ -15,7 +16,7 @@ export default class Hand {
       return 0;
     });
     let values = [];
-    cards.forEach(c => {
+    cards.forEach((c) => {
       values.push(c.value);
     });
     this.cards = cards;
@@ -76,10 +77,10 @@ function royalStraightFlush(cards) {
   // Para escalera Real de color, 2 condiciones: Tener todas el mismo PALO, formar una ESCALERA al As.
   // Compruebo PALO
   if (
-    cards.every(c => c.shape === "♠") ||
-    cards.every(c => c.shape === "♣") ||
-    cards.every(c => c.shape === "♥") ||
-    cards.every(c => c.shape === "♦")
+    cards.every((c) => c.shape === "♠") ||
+    cards.every((c) => c.shape === "♣") ||
+    cards.every((c) => c.shape === "♥") ||
+    cards.every((c) => c.shape === "♦")
   ) {
     // Compruebo ESCALERA
     // ¿Forman escalera?
@@ -107,10 +108,10 @@ function royalStraightFlush(cards) {
 
 function straightFlush(cards, values) {
   if (
-    cards.every(c => c.shape === "♠") ||
-    cards.every(c => c.shape === "♣") ||
-    cards.every(c => c.shape === "♥") ||
-    cards.every(c => c.shape === "♦")
+    cards.every((c) => c.shape === "♠") ||
+    cards.every((c) => c.shape === "♣") ||
+    cards.every((c) => c.shape === "♥") ||
+    cards.every((c) => c.shape === "♦")
   ) {
     // Compruebo si forman escalera
 
@@ -140,10 +141,10 @@ function fullHouse(values) {
   let count1 = 0;
   let count2 = 0;
   if (valueEquals.length == 2) {
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[0]) count1++;
     });
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[1]) count2++;
     });
 
@@ -154,10 +155,10 @@ function fullHouse(values) {
 
 function flush(cards) {
   if (
-    cards.every(c => c.shape === "♠") ||
-    cards.every(c => c.shape === "♣") ||
-    cards.every(c => c.shape === "♥") ||
-    cards.every(c => c.shape === "♦")
+    cards.every((c) => c.shape === "♠") ||
+    cards.every((c) => c.shape === "♣") ||
+    cards.every((c) => c.shape === "♥") ||
+    cards.every((c) => c.shape === "♦")
   )
     return true;
   else return false;
@@ -200,13 +201,13 @@ function threeOfaKind(values) {
     let count1 = 0;
     let count2 = 0;
     let count3 = 0;
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[0]) count1++;
     });
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[1]) count2++;
     });
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[2]) count3++;
     });
     if (count1 === 3 || count2 === 3 || count3 === 3) return true;
@@ -219,13 +220,13 @@ function twoPair(values) {
   let valueEquals = _.uniq(values);
   if (valueEquals.length === 3) {
     let count = [0, 0, 0];
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[0]) ++count[0];
     });
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[1]) ++count[1];
     });
-    values.forEach(v => {
+    values.forEach((v) => {
       if (v === valueEquals[2]) ++count[2];
     });
     if (
@@ -243,3 +244,5 @@ function onePair(values) {
   if (valueEquals.length === 4) return true;
   return false;
 }
+
+module.exports = Hand;

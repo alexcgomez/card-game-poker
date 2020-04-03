@@ -1,4 +1,4 @@
-export default class Card {
+class Card {
   constructor(shape, value) {
     this.shape = shape;
     this.value = value;
@@ -70,3 +70,5 @@ export default class Card {
     return number + "_" + suit;
   }
 }
+
+module.exports = Card;
