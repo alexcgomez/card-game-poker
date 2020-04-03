@@ -2,13 +2,27 @@
   "name": "card-game-poker",
   "version": "0.0.1",
   "description": "Classic poker card game",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "lodash": "^4.17.15"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "csv-loader": "^3.0.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.4",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "xml-loader": "^1.2.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,7 +31,7 @@
   "keywords": [
     "poker"
   ],
-  "author": "@raiben23",
+  "author": "Alex Cáceres @raiben23",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/raiben23/card-game-poker/issues"
