@@ -69,6 +69,48 @@ class Card {
     }
     return number + "_" + suit;
   }
+  parsePoker() {
+    let suit = "";
+    switch (true) {
+      case this.shape == "♠":
+        suit = "spades";
+        break;
+      case this.shape == "♣":
+        suit = "clubs";
+        break;
+      case this.shape == "♥":
+        suit = "hearts";
+        break;
+      case this.shape == "♦":
+        suit = "diamonds";
+        break;
+      default:
+        suit = this.shape;
+        console.log("no se parsea suit es un:" + this.shape);
+        break;
+    }
+    let point = 0;
+    switch (true) {
+      case this.value == "1":
+        point = "A";
+        break;
+      case this.value == "11":
+        point = "J";
+        break;
+      case this.value == "12":
+        point = "Q";
+        break;
+      case this.value == "13":
+        point = "K";
+        break;
+      default:
+        point = this.value;
+        console.log("no se parsea point es un:" + this.value);
+        break;
+    }
+    this.shape = suit;
+    this.value = point;
+  }
 }
 
 export default Card;

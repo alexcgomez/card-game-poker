@@ -31,43 +31,43 @@ class Hand {
     */
     switch (true) {
       case royalStraightFlush(this.cards):
-        console.log("Tienes una escalera real de color!");
+        return "Tienes una escalera real de color!";
         break;
 
       case straightFlush(this.cards, this.cards_values):
-        console.log("Tienes una escalera de color!");
+        return "Tienes una escalera de color!";
         break;
 
       case fourOfaKind(this.cards_values):
-        console.log("Poker!");
+        return "Poker!";
         break;
 
       case fullHouse(this.cards_values):
-        console.log("Tienes un full!");
+        return "Tienes un full!";
         break;
 
       case flush(this.cards):
-        console.log("Tienes un Color!");
+        return "Tienes un Color!";
         break;
 
       case straight(this.cards_values):
-        console.log("Tienes un Escalera!");
+        return "Tienes un Escalera!";
         break;
 
       case threeOfaKind(this.cards_values):
-        console.log("Tienes un Trio!");
+        return "Tienes un Trio!";
         break;
 
       case twoPair(this.cards_values):
-        console.log("Tienes doble Pareja!");
+        return "Tienes doble Pareja!";
         break;
 
       case onePair(this.cards_values):
-        console.log("Tienes una Pareja!");
+        return "Tienes una Pareja!";
         break;
 
       default:
-        console.log("Tienes carta alta!");
+        return "Tienes carta alta!";
         break;
     }
   }

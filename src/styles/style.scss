@@ -1,0 +1,66 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  position: fixed;
+  background: #8ba987 url("../assets/bg.jpg") no-repeat center center;
+  //background-size: 100% 100%;
+}
+#div-table {
+  background: green;
+  border-radius: 530px;
+  border: 30px solid black;
+  height: 400px;
+  width: 700px;
+  margin-top: 200px;
+  margin-left: 600px;
+}
+#back-card {
+  position: absolute;
+  top: 350px;
+  right: 500px;
+}
+
+#cardHand0 {
+  position: absolute;
+  top: 600px;
+  right: 100px;
+}
+
+#cardHand1 {
+  position: absolute;
+  top: 600px;
+  right: 175px;
+}
+#cardHand2 {
+  position: absolute;
+  top: 600px;
+  right: 250px;
+}
+#cardHand3 {
+  position: absolute;
+  top: 600px;
+  right: 325px;
+}
+#cardHand4 {
+  position: absolute;
+  top: 600px;
+  right: 400px;
+}
+
+#butDealer {
+  font-size: 30px;
+  border-radius: 20px;
+  height: 50px;
+  width: 130px;
+  position: absolute;
+  top: 600px;
+  right: 700px;
+}
+
+#cards-deck {
+  position: absolute;
+  top: 370px;
+  right: 600px;
+}

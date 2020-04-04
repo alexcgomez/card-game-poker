@@ -92,4 +92,4 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-export default { Deck, value };
+export default Deck;
