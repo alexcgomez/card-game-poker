@@ -1,6 +1,6 @@
 //import { value } from "./deck.js";
-const value = require("./deck");
-const _ = require("lodash");
+import value from "./deck";
+import { uniq } from "lodash";
 
 class Hand {
   constructor(...cards) {
@@ -137,7 +137,7 @@ function fourOfaKind(values) {
 }
 
 function fullHouse(values) {
-  let valueEquals = _.uniq(values);
+  let valueEquals = uniq(values);
   let count1 = 0;
   let count2 = 0;
   if (valueEquals.length == 2) {
@@ -196,7 +196,7 @@ function straight(values) {
 
 function threeOfaKind(values) {
   // Método _.uniq() devuelve array sin repetidos, utilizo contadores para determinar cuantos repetidos hayde cada valor
-  let valueEquals = _.uniq(values);
+  let valueEquals = uniq(values);
   if (valueEquals.length === 3) {
     let count1 = 0;
     let count2 = 0;
@@ -217,7 +217,7 @@ function threeOfaKind(values) {
 
 function twoPair(values) {
   // Método _.uniq() devuelve array sin repetidos, utilizo contadores para determinar cuantos repetidos hayde cada valor
-  let valueEquals = _.uniq(values);
+  let valueEquals = uniq(values);
   if (valueEquals.length === 3) {
     let count = [0, 0, 0];
     values.forEach((v) => {
@@ -240,9 +240,9 @@ function twoPair(values) {
 }
 
 function onePair(values) {
-  let valueEquals = _.uniq(values);
+  let valueEquals = uniq(values);
   if (valueEquals.length === 4) return true;
   return false;
 }
 
-module.exports = Hand;
+export default Hand;

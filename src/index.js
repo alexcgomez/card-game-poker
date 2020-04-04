@@ -1,23 +1,19 @@
-//import Deck, { value } from "./deck.js";
-const { Deck, value } = require("./js/deck");
-//import Hand from "./hand.js";
-const Hand = require("./js/hand");
-//import Player from "./player.js";
-const Player = require("./js/player");
-//import Card from "./card.js";
+import CardImg from "./assets/cards.png";
+import css from "./styles/style.scss";
+import { Deck, value } from "./js/deck";
+import Hand from "./js/hand";
+import Player from "./js/player";
+import Poker from "./js/poker";
 
+//insert a <img> to the end of body
+console.log(window.Poker.getCardImage(260, "hearts", "q"));
+
+/*
 let d = new Deck();
 const h = new Hand(d.deal(), d.deal(), d.deal(), d.deal(), d.deal());
 const p1 = new Player("Alex", h, 1);
 console.log(p1.hand);
 p1.hand.calcHand();
-
-const greeting = document.createElement("h1");
-greeting.textContent = `Hola que tal`;
-
-document.body.appendChild(greeting);
-
-/*
 
 const h = new Hand(
   new Card("♠", value.ACE),

@@ -1,4 +1,4 @@
-const Card = require("./card");
+import Card from "./card";
 
 // Para facilitar el codigo se ha hecho la siguiente asignación:
 const value = {
@@ -92,4 +92,4 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-module.exports = { Deck, value };
+export default { Deck, value };
