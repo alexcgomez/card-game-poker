@@ -21,7 +21,7 @@ body {
       height: 400px;
       border-radius: 300px;
       border: 30px solid black;
-      margin-left: 25%;
+      margin-left: 15%;
       #cardsTable {
         margin-top: 250px;
         margin-left: 40px;
@@ -37,8 +37,8 @@ body {
       background: linear-gradient(top, #8f6b29, #fde08d, #df9f28);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-left: 63%;
-      margin-top: -5%;
+      margin-left: 60%;
+      margin-top: -3%;
     }
 
     #textBox {
@@ -49,20 +49,20 @@ body {
       background: url(../assets/panel.svg);
       background-repeat: no-repeat;
       background-size: cover;
-      width: 379px;
-      height: 550px;
-      p {
-        padding-top: 7rem;
-        padding-left: 3rem;
-        padding-right: 3rem;
-        text-justify: auto;
+      width: 600px;
+      height: 650px;
+      table {
+        text-align: left;
+        font-size: 20px;
+        width: 100%;
+        padding: 12rem 2rem 0rem;
+        // padding-right: 3rem;
       }
     }
   }
 
   .golden-btn {
     font-family: serif;
-
     position: absolute;
     font-size: 20px;
     left: 35%;
@@ -108,20 +108,8 @@ body {
       inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
   }
   .deal {
-    left: 35%;
-    top: 30%;
-  }
-  .allin {
-    left: 35%;
-    top: 40%;
-  }
-  .fold {
-    left: 35%;
-    top: 50%;
-  }
-  .show {
-    left: 35%;
-    top: 60%;
+    left: 60%;
+    top: 80%;
   }
   .imgDeck {
     position: absolute;

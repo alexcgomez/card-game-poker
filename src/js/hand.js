@@ -23,7 +23,7 @@ class Hand {
     this.cards_values = values;
   }
 
-  calcHand() {
+  calcHand(player) {
     /*Estas funciones devuelven booleano, a partir de ahi, se calcula la puntuación. Las Manos que se pueden combinar formando puntuación, son mutuamente excluyentes, es decir:
         - P.e.  No puedes tener doble pareja del mismo valor ( Mano -> 2(♥), 2(♠), 2(♣), 2(♦) , x(x)) , esto, es un Póker.
         - Siempre tendrás la combinación de mayor puntuación. P.e. da igual que tengas una pareja de Ases, si ademas tienes un trio, pasas a tener un full.
@@ -31,43 +31,59 @@ class Hand {
     */
     switch (true) {
       case royalStraightFlush(this.cards):
-        return "Tienes una escalera real de color!";
+        player.score = 100;
+        return "Royal StraightFlush!";
         break;
 
       case straightFlush(this.cards, this.cards_values):
-        return "Tienes una escalera de color!";
+        player.score = 90;
+        return "Straigh Flush!";
         break;
 
       case fourOfaKind(this.cards_values):
+        player.score = 80;
         return "Poker!";
         break;
 
       case fullHouse(this.cards_values):
-        return "Tienes un full!";
+        player.score = 70;
+        return "Full House!";
         break;
 
       case flush(this.cards):
-        return "Tienes un Color!";
+        player.score = 60;
+
+        return "Flush!";
         break;
 
       case straight(this.cards_values):
-        return "Tienes un Escalera!";
+        player.score = 50;
+
+        return "Straight!";
         break;
 
       case threeOfaKind(this.cards_values):
-        return "Tienes un Trio!";
+        player.score = 40;
+
+        return "Three of a Kind!";
         break;
 
       case twoPair(this.cards_values):
-        return "Tienes doble Pareja!";
+        player.score = 30;
+
+        return "Two Pair!";
         break;
 
       case onePair(this.cards_values):
-        return "Tienes una Pareja!";
+        player.score = 20;
+
+        return "One Pair!";
         break;
 
       default:
-        return "Tienes carta alta!";
+        player.score = 10;
+
+        return "High Card!";
         break;
     }
   }
