@@ -1,4 +1,5 @@
 import Card from "./card";
+import Poker from "./poker";
 
 // Para facilitar el codigo se ha hecho la siguiente asignación:
 const value = {
@@ -19,6 +20,13 @@ const value = {
 
 class Deck {
   constructor() {
+    let imgDeck = "";
+
+    // Elemento HTML para mostrar mazo
+    this.imgDeck = window.Poker.getBackImage(100, "#2E319C", "#7A7BB8");
+    this.imgDeck.className = "imgDeck";
+
+    // Inicializo Cartas
     this.ace_Pikes = new Card("♠", value.ACE);
     this.two_Pikes = new Card("♠", value.TWO);
     this.three_Pikes = new Card("♠", value.THREE);
@@ -74,11 +82,14 @@ class Deck {
   }
 
   deal() {
+    let size = Object.keys(this).length;
+    console.log(size);
+
     // Guardo los valores del objeto en un array de cartas (un mazo)
     const deck = Object.values(this);
 
     // Saco una carta aleatoria
-    const card = deck[getRandomInt(0, 51)];
+    const card = deck[getRandomInt(0, size)];
     let a = card.toString();
     // Elimino esa carta del mazo
     delete this[a];

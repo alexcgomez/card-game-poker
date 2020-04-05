@@ -1,4 +1,7 @@
 body {
+  font-family: serif;
+
+  color: white;
   background: url(../assets/bg_1.jpg);
   // background-position: center;
   background-repeat: no-repeat;
@@ -11,16 +14,34 @@ body {
     align-items: center;
 
     #table {
-      text-align: center;
+      display: flex;
+      align-items: center;
       background: green;
       width: 700px;
       height: 400px;
       border-radius: 300px;
       border: 30px solid black;
       margin-left: 25%;
+      #cardsTable {
+        margin-top: 250px;
+        margin-left: 40px;
+      }
+      #imgDeck {
+        margin-left: 50px;
+      }
+    }
+    #textScore {
+      position: absolute;
+      font-size: 50px;
+      background: -webkit-linear-gradient(top, #8f6b29, #fde08d, #df9f28);
+      background: linear-gradient(top, #8f6b29, #fde08d, #df9f28);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-left: 63%;
+      margin-top: -5%;
     }
 
-    #rules {
+    #textBox {
       text-align: left;
       color: white;
       margin-top: 17%;
@@ -40,8 +61,9 @@ body {
   }
 
   .golden-btn {
-    position: absolute;
     font-family: serif;
+
+    position: absolute;
     font-size: 20px;
     left: 35%;
     top: 40%;
