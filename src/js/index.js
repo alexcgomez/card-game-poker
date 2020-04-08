@@ -1,10 +1,10 @@
 import css from "./styles/style.scss";
-import Deck from "./js/deck";
-import Hand from "./js/hand";
-import Player from "./js/player";
-import Poker from "./js/poker";
-import Card from "./js/card";
-import controller from "./js/controller";
+import Deck from "./deck";
+import Hand from "./hand";
+import Player from "./player";
+import Poker from "./poker";
+import Card from "./card";
+import controller from "./controller";
 
 // Construct table of hands
 // Royal flush
