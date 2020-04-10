@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 
-$primary-color: #333;
-
 body {
   font-family: "Bree Serif", serif;
   background: url(../assets/bg.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+
   #div-title {
     background: url(../assets/logopoker.png);
     background-size: contain;
@@ -20,7 +20,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: orange;
     left: 50%;
     #div-rules {
       background: url(../assets/panel.svg);
@@ -30,24 +29,103 @@ body {
       height: 870px;
     }
     #div-table {
-      background: green;
+      background: rgb(5, 85, 5);
       display: inline-block;
       border-radius: 500px;
-      border: 70px solid brown;
+      border: 70px solid rgb(0, 0, 0);
+      box-shadow: 1px 1px 100px 10px black;
       margin-top: 5%;
       width: 1300px;
       height: 600px;
+      margin-bottom: 10%;
+
+      #card-deck {
+        background: blue;
+        width: 150px;
+        height: 200px;
+        margin-left: 20%;
+        margin-top: 5%;
+      }
+      #player-cards {
+        background: red;
+        width: 500px;
+        height: 200px;
+        margin-left: 30%;
+        margin-top: 5%;
+      }
+    }
+    .golden-btn {
+      margin-bottom: 10%;
+      text-decoration: none;
+      font-size: 2em;
+      border: none;
+      border-radius: 0.3em;
+      height: 2.75em;
+      line-height: 2.5em;
+      text-transform: uppercase;
+      padding: 0 1em;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+        0 3px 6px rgba(110, 80, 20, 0.4),
+        inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+        inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+      background-image: linear-gradient(
+        160deg,
+        #a54e07,
+        #b47e11,
+        #fef1a2,
+        #bc881b,
+        #a54e07
+      );
+      border: 1px solid #a55d07;
+      color: rgb(66, 28, 4);
+      text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      background-size: 100% 100%;
+      background-position: center;
+    }
+    .golden-btn:hover {
+      background-size: 150% 150%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+        inset 0 -2px 5px 1px #b17d10,
+        inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+      border: 1px solid rgba(165, 93, 7, 0.6);
+      color: rgba(120, 50, 5, 0.8);
+    }
+  }
+  footer {
+    background: linear-gradient(black, rgb(26, 25, 25));
+    color: rgb(126, 124, 124);
+    text-align: center;
+    height: 130px;
+    p {
+      padding: 50px 0px;
     }
   }
 }
 
 // Pantallas pequeñas
-@media (max-width: 1720px) {
+@media (max-width: 1900px) {
   body {
-    #div-rules {
-      background: blue;
-      width: 500px;
-      height: 400px;
+    #container-game {
+      #div-table {
+        width: 1000px;
+        height: 600px;
+        #card-deck {
+          background: blue;
+          width: 100px;
+          height: 150px;
+          margin-left: 15%;
+          margin-top: 15%;
+        }
+        #player-cards {
+          background: red;
+          width: 450px;
+          height: 150px;
+          margin-left: 30%;
+          margin-top: 5%;
+        }
+      }
     }
   }
 }
@@ -59,13 +137,43 @@ body {
     #div-title {
       margin-top: 20%;
       margin-left: 33%;
-      width: 200px;
-      height: 100px;
-    }
-    #div-rules {
-      background: blue;
       width: 300px;
-      height: 600px;
+      height: 200px;
+      margin-bottom: 10%;
+    }
+    #container-game {
+      background: orange;
+      width: 420px;
+      padding: 0px;
+      margin-left: 3%;
+      #div-rules {
+        background-size: contain;
+        width: 450px;
+        height: 700px;
+      }
+      #div-table {
+        width: 400px;
+        height: 400px;
+        border-radius: 100px;
+        border: 7px solid rgb(0, 0, 0);
+        #card-deck {
+          background: blue;
+          width: 50px;
+          height: 100px;
+          margin-left: 15%;
+          margin-top: 15%;
+        }
+        #player-cards {
+          background: red;
+          width: 350px;
+          height: 100px;
+          margin-left: 5%;
+          margin-top: 20%;
+        }
+        footer {
+          width: inherit;
+        }
+      }
     }
   }
 }
