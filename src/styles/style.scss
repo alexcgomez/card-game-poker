@@ -26,7 +26,15 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
       width: 600px;
-      height: 870px;
+      height: 900px;
+      padding: 2rem;
+      #table-rules {
+        width: 100%;
+        padding: 1rem;
+        font-size: 20px;
+        color: white;
+        margin-top: 30%;
+      }
     }
     #div-table {
       background: rgb(5, 85, 5);
@@ -53,6 +61,9 @@ body {
         margin-left: 30%;
         margin-top: 5%;
       }
+    }
+    .deal {
+      display: none;
     }
     .golden-btn {
       margin-bottom: 10%;
@@ -147,9 +158,16 @@ body {
       padding: 0px;
       margin-left: 3%;
       #div-rules {
-        background-size: contain;
+        background-size: cover;
         width: 450px;
-        height: 700px;
+        height: 750px;
+        #table-rules {
+          width: 100%;
+          padding: 0.5rem;
+          font-size: 15px;
+          color: white;
+          margin-top: 30%;
+        }
       }
       #div-table {
         width: 400px;
