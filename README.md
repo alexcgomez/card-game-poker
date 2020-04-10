@@ -1,7 +1,7 @@
 # Poker Hand Calculator
 
-Este proyecto muestra una calculadora de manos generadas aleatoriamente desde un mazo de cartas.
-Internamente, esta preparado para implementar nuevos jugadores y comparar sus puntuaciones para determinar el ganador en cada mano. También, se adjunta una tabla de las manos ganadoras posibles junto con la puntuación que aportan y la probabilidad que hay de que se genere esa mano.
+This project shows a randomly generated hand calculator from a deck of cards.
+Internally, you are ready to deploy new players and compare your scores to determine the winner in each hand. Also, a table of possible winning hands is attached along with the score they provide and the probability that this hand will be generated.
 
 <img src="./src/assets/img/screen1.png"
 alt="Poker hand Calculator" width="540" height="280" border="3" /><br/>
